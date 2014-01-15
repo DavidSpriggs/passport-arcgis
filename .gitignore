@@ -1,3 +1,8 @@
+# Mac OS X
+.DS_Store
+
+# Node.js
+node_modules
 lib-cov
 *.seed
 *.log
@@ -12,4 +17,3 @@ logs
 results
 
 npm-debug.log
-node_modules
