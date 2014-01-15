@@ -1,14 +1,14 @@
 var vows = require('vows');
 var assert = require('assert');
 var util = require('util');
-var GitHubStrategy = require('passport-github/strategy');
+var ArcGISStrategy = require('passport-arcgis/strategy');
 
 
-vows.describe('GitHubStrategy').addBatch({
+vows.describe('ArcGISStrategy').addBatch({
   
   'strategy': {
     topic: function() {
-      return new GitHubStrategy({
+      return new ArcGISStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },
@@ -25,7 +25,7 @@ vows.describe('GitHubStrategy').addBatch({
   
   'strategy with user agent option': {
     topic: function() {
-      return new GitHubStrategy({
+      return new ArcGISStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret',
         userAgent: 'example.com'
@@ -40,7 +40,7 @@ vows.describe('GitHubStrategy').addBatch({
   
   'strategy with user agent option in custom headers': {
     topic: function() {
-      return new GitHubStrategy({
+      return new ArcGISStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret',
         customHeaders: { 'User-Agent': 'example2.com' }
@@ -55,7 +55,7 @@ vows.describe('GitHubStrategy').addBatch({
   
   'strategy with user agent option in custom headers and explicit option': {
     topic: function() {
-      return new GitHubStrategy({
+      return new ArcGISStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret',
         customHeaders: { 'User-Agent': 'example2.com' },
@@ -71,7 +71,7 @@ vows.describe('GitHubStrategy').addBatch({
   
   'strategy when loading user profile': {
     topic: function() {
-      var strategy = new GitHubStrategy({
+      var strategy = new ArcGISStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },
@@ -106,7 +106,7 @@ vows.describe('GitHubStrategy').addBatch({
         assert.isNull(err);
       },
       'should load profile' : function(err, profile) {
-        assert.equal(profile.provider, 'github');
+        assert.equal(profile.provider, 'arcgis');
         assert.equal(profile.id, '1');
         assert.equal(profile.username, 'octocat');
         assert.equal(profile.displayName, 'monalisa octocat');
@@ -125,7 +125,7 @@ vows.describe('GitHubStrategy').addBatch({
   
   'strategy when loading user profile from custom URL': {
     topic: function() {
-      var strategy = new GitHubStrategy({
+      var strategy = new ArcGISStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret',
         userProfileURL: 'https://github.corpDomain/api/v3/user',
@@ -180,7 +180,7 @@ vows.describe('GitHubStrategy').addBatch({
   
   'strategy when loading user profile and encountering an error': {
     topic: function() {
-      var strategy = new GitHubStrategy({
+      var strategy = new ArcGISStrategy({
         clientID: 'ABC123',
         clientSecret: 'secret'
       },
