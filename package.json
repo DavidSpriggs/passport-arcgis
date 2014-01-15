@@ -1,14 +1,14 @@
 {
   "name": "passport-arcgis",
-  "version": "0.1.0",
+  "version": "0.1.5",
   "description": "ArcGIS authentication strategy for Passport.",
   "keywords": ["passport", "arcgis", "auth", "authn", "authentication", "identity"],
   "repository": {
     "type": "git",
-    "url": "http://github.com/DavidSpriggs/passport-github.git"
+    "url": "http://github.com/DavidSpriggs/passport-arcgis.git"
   },
   "bugs": {
-    "url": "http://github.com/DavidSpriggs/passport-github/issues"
+    "url": "http://github.com/DavidSpriggs/passport-arcgis/issues"
   },
   "author": {
     "name": "David Spriggs",

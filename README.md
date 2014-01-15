@@ -22,13 +22,13 @@ and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which accepts
 these credentials and calls `done` providing a user, as well as `options`
 specifying a client ID, client secret, and callback URL.
 
-    passport.use(new GitHubStrategy({
-        clientID: GITHUB_CLIENT_ID,
-        clientSecret: GITHUB_CLIENT_SECRET,
-        callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+    passport.use(new ArcGISStrategy({
+        clientID: ARCGIS_CLIENT_ID,
+        clientSecret: ARCGIS_CLIENT_SECRET,
+        callbackURL: "http://127.0.0.1:3000/auth/arcgis/callback"
       },
       function(accessToken, refreshToken, profile, done) {
-        User.findOrCreate({ githubId: profile.id }, function (err, user) {
+        User.findOrCreate({ username: profile.username }, function (err, user) {
           return done(err, user);
         });
       }
@@ -36,17 +36,17 @@ specifying a client ID, client secret, and callback URL.
 
 #### Authenticate Requests
 
-Use `passport.authenticate()`, specifying the `'github'` strategy, to
+Use `passport.authenticate()`, specifying the `'arcgis'` strategy, to
 authenticate requests.
 
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
-    app.get('/auth/github',
-      passport.authenticate('github'));
+    app.get('/auth/arcgis',
+      passport.authenticate('arcgis'));
 
-    app.get('/auth/github/callback', 
-      passport.authenticate('github', { failureRedirect: '/login' }),
+    app.get('/auth/arcgis/callback', 
+      passport.authenticate('arcgis', { failureRedirect: '/login' }),
       function(req, res) {
         // Successful authentication, redirect home.
         res.redirect('/');
@@ -54,22 +54,20 @@ application:
 
 ## Examples
 
-For a complete, working example, refer to the [login example](https://github.com/jaredhanson/passport-github/tree/master/examples/login).
+For a complete, working example, refer to the [login example](https://github.com/DavidSpriggs/passport-arcgis/tree/master/examples/login).
+
+ArcGIS Oauth2 [api](http://resources.arcgis.com/en/help/arcgis-rest-api/#/Authorize/02r300000214000000/) and [discussion](https://developers.arcgis.com/en/authentication/user-php-other.html).
 
 ## Tests
 
     $ npm install --dev
     $ make test
 
-[![Build Status](https://secure.travis-ci.org/jaredhanson/passport-github.png)](http://travis-ci.org/jaredhanson/passport-github)
-
 ## Credits
 
+  - [David Spriggs](http://github.com/DavidSpriggs)
   - [Jared Hanson](http://github.com/jaredhanson)
 
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2011-2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>
-
