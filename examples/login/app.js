@@ -3,8 +3,8 @@ var express = require('express'),
   util = require('util'),
   ArcGISStrategy = require('passport-arcgis').Strategy;
 
-var ARCGIS_CLIENT_ID = "4hdHcswBr2Wwnute";
-var ARCGIS_CLIENT_SECRET = "aacab78df2034295aa0a6a490c0f8662";
+var ARCGIS_CLIENT_ID = "UaGPPkRbGmBV6GTK";
+var ARCGIS_CLIENT_SECRET = "ba3f18c3da8c42ce833cc006c7afdc5e";
 
 
 // Passport session setup.
@@ -30,7 +30,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new ArcGISStrategy({
     clientID: ARCGIS_CLIENT_ID,
     clientSecret: ARCGIS_CLIENT_SECRET,
-    callbackURL: "http://127.0.0.1:3000/auth/arcgis/callback"
+    callbackURL: "http://localhost:3000/auth/arcgis/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     // asynchronous verification, for effect...

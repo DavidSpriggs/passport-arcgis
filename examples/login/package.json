@@ -2,9 +2,9 @@
   "name": "passport-arcgis-examples-login",
   "version": "0.0.0",
   "dependencies": {
-    "express": ">= 0.0.0",
-    "ejs": ">= 0.0.0",
-    "passport": ">= 0.0.0",
-    "passport-arcgis": ">= 0.0.0"
+    "express": "*",
+    "ejs": "*",
+    "passport": "*",
+    "passport-arcgis": "*"
   }
 }
