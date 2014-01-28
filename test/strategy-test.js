@@ -32,7 +32,7 @@ vows.describe('ArcGISStrategy').addBatch({
       // mock
       strategy._oauth2.get = function(url, accessToken, callback) {
         if (url == 'https://www.arcgis.com/sharing/rest/community/self?f=json') {
-          var body = '{ "login": "octocat", "id": 1, "name": "monalisa octocat", "email": "octocat@github.com", "html_url": "https://github.com/octocat" }';
+          var body = '{ "orgId": "5555567", "fullName": "fullName", "email": "octocat@arcgis.com", "username": "userName", "role": "admin" }';
           callback(null, body, undefined);
         } else {
           callback(new Error('Incorrect user profile URL'));
@@ -59,12 +59,12 @@ vows.describe('ArcGISStrategy').addBatch({
       },
       'should load profile' : function(err, profile) {
         assert.equal(profile.provider, 'arcgis');
-        assert.equal(profile.id, '1');
-        assert.equal(profile.username, 'octocat');
-        assert.equal(profile.displayName, 'monalisa octocat');
-        assert.equal(profile.profileUrl, 'https://github.com/octocat');
-        assert.lengthOf(profile.emails, 1);
-        assert.equal(profile.emails[0].value, 'octocat@github.com');
+        assert.equal(profile.id, 'userName');
+        assert.equal(profile.username, 'userName');
+        assert.equal(profile.displayName, 'fullName');
+        assert.equal(profile.role, 'admin');
+        assert.equal(profile.email, 'octocat@arcgis.com');
+        assert.equal(profile._json.id, 'userName');
       },
       'should set raw property' : function(err, profile) {
         assert.isString(profile._raw);
