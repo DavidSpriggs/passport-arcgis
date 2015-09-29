@@ -1,6 +1,6 @@
 {
   "name": "passport-arcgis",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "ArcGIS authentication strategy for Passport.",
   "keywords": ["passport", "arcgis", "auth", "authn", "authentication", "identity"],
   "repository": {
@@ -17,7 +17,7 @@
   },
   "licenses": [ {
     "type": "MIT",
-    "url": "http://www.opensource.org/licenses/MIT" 
+    "url": "http://www.opensource.org/licenses/MIT"
   } ],
   "main": "./lib/passport-arcgis",
   "dependencies": {
